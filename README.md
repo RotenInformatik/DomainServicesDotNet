@@ -1,7 +1,7 @@
-Infrastructure for DDD with microservices.
+Infrastructure for DDD with microservices for .NET.
 
 Based on .NET Standard 2.1, with minimal dependencies.
 
 Licensed under [Apache 2.0](LICENSE).
 
-Documentation: [Wiki](https://github.com/RotenInformatik/DomainServices/wiki) & [API reference]()
+[Documentation](https://roteninformatik.github.io/DomainServicesDotNet/)

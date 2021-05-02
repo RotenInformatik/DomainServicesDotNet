@@ -1,0 +1,1827 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RI.DomainServices.Common</name>
+    </assembly>
+    <members>
+        <member name="T:RI.DomainServices.Broker.Builder.DomainServiceBrokerBuilder">
+            <summary>
+                Domain service builder used to configure and register all necessary types for using domain services as a broker.
+            </summary>
+            <remarks>
+                <note type="important">
+                    Domain services are only added to the used composition container and usable after <see cref="M:RI.DomainServices.Broker.Builder.DomainServiceBrokerBuilder.Build" /> is called.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Broker.Builder.DomainServiceBrokerBuilder.Build">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.DomainServiceBuilder">
+            <summary>
+                Domain service builder used to configure and register all necessary types for using domain services.
+            </summary>
+            <remarks>
+                <note type="important">
+                    Domain services are only added to the used composition container and usable after <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> is called.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="P:RI.DomainServices.Common.Builder.DomainServiceBuilder.AlreadyBuilt">
+            <summary>
+                Gets whether <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> has already been called.
+            </summary>
+            <value>
+            true if <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build"/> was called, false otherwise.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Common.Builder.DomainServiceBuilder.Registrations">
+            <summary>
+                Gets the list of all the domain service registrations.
+            </summary>
+            <value>
+            The list of all the domain service registrations.
+            </value>
+            <remarks>
+                <note type="important">
+                    Domain services are only added to the used composition container and usable after <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> is called.
+                </note>
+            </remarks>
+            <exception cref="T:System.InvalidOperationException"> <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> has already been called. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build">
+            <summary>
+                Finishes the domain service configuration, registers all necessary types in the used composition container, and makes the domain services usable.
+            </summary>
+            <remarks>
+                <note type="important">
+                    Domain services are only added to the used composition container and usable after <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> is called.
+                </note>
+            </remarks>
+            <exception cref="T:System.InvalidOperationException"> <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> has already been called. </exception>
+            <exception cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException"> Necessary types could not be successfully configured or registered. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException">
+            <summary>
+                The <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" /> is thrown when an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" /> could not successfully configure or register the necessary types.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderException.#ctor">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" />.
+            </summary>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderException.#ctor(System.String)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" />.
+            </summary>
+            <param name="message"> The message which describes the failure. </param>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderException.#ctor(System.Exception)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" />.
+            </summary>
+            <param name="innerException"> The exception which triggered this exception. </param>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderException.#ctor(System.String,System.Exception)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" />.
+            </summary>
+            <param name="message"> The message which describes the failure. </param>
+            <param name="innerException"> The exception which triggered this exception. </param>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" />.
+            </summary>
+            <param name="info"> The serialization data. </param>
+            <param name="context"> The type of the source of the serialization data. </param>
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddBuildOnly(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Type)">
+            <summary>
+                Adds a build-only domain service registration specifying an implementation type.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="implementation" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddBuildOnly(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Adds a build-only domain service registration specifying a factory.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="factory" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddBuildOnly(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Object)">
+            <summary>
+                Adds a build-only domain service registration specifying an implementation instance.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="instance"> The implementation instance. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="instance" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddSingleton(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Type)">
+            <summary>
+                Adds a singleton domain service registration specifying an implementation type.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="implementation" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddSingleton(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Adds a singleton domain service registration specifying a factory.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="factory" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddSingleton(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Object)">
+            <summary>
+                Adds a singleton domain service registration specifying an implementation instance.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="instance"> The implementation instance. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="instance" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddTransient(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Type)">
+            <summary>
+                Adds a transient domain service registration specifying an implementation type.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="implementation" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.AddTransient(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Adds a transient domain service registration specifying a factory.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The added service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" />, <paramref name="contract" />, or <paramref name="factory" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.ThrowIfAlreadyBuilt(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+                Checks whether the specified domain service builder has already <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build" /> called and if so throws a <see cref="T:System.InvalidOperationException" />.
+            </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetService``1(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+                Gets a service instance from the domain service registrations of a an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <typeparam name="TContract"> The type of the requested service. </typeparam>
+            <param name="builder"> The service builder. </param>
+            <returns> The requested service instance or null if no registration for the specified contract was found. </returns>
+            <remarks>
+                <note type="important">
+                    The service resolution is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+            <exception cref="T:System.NotSupportedException"> The resolved registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetService(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type)">
+            <summary>
+                Gets a service instance from the domain service registrations of a an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <param name="builder"> The service builder. </param>
+            <param name="contract"> The type of the requested service. </param>
+            <returns> The requested service instance or null if no registration for the specified contract was found. </returns>
+            <remarks>
+                <note type="important">
+                    The service resolution is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+            <exception cref="T:System.NotSupportedException"> The resolved registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetService(RI.DomainServices.Common.Builder.DomainServiceBuilder,RI.DomainServices.Common.Composition.CompositionRegistration)">
+            <summary>
+                Gets a service instance from the domain service registrations of a an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <param name="builder"> The service builder. </param>
+            <param name="registration"> The domain service registration. </param>
+            <returns> The requested service instance. </returns>
+            <remarks>
+                <note type="important">
+                    The service resolution is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="registration" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+            <exception cref="T:System.NotSupportedException"> The resolved registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetServiceProvider(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+                Gets an <see cref="T:System.IServiceProvider" /> which can be used to access the domain service registrations of an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <param name="builder"> The service builder. </param>
+            <returns> The <see cref="T:System.IServiceProvider" /> (one new instance for each call to <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetServiceProvider(RI.DomainServices.Common.Builder.DomainServiceBuilder)" />). </returns>
+            <remarks>
+                <note type="important">
+                    The returned <see cref="T:System.IServiceProvider" /> is limited as it only supports basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetServices``1(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+                Gets all service instances from the domain service registrations of a an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <typeparam name="TContract"> The type of the requested service. </typeparam>
+            <param name="builder"> The service builder. </param>
+            <returns> The list of instances of the requested service or an empty list if no registration for the specified contract was found. </returns>
+            <remarks>
+                <note type="important">
+                    The service resolution is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+            <exception cref="T:System.NotSupportedException"> The resolved registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.GetServices(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type)">
+            <summary>
+                Gets all service instances from the domain service registrations of a an <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />.
+            </summary>
+            <param name="builder"> The service builder. </param>
+            <param name="contract"> The type of the requested service. </param>
+            <returns> The list of instances of the requested service or an empty list if no registration for the specified contract was found. </returns>
+            <remarks>
+                <note type="important">
+                    The service resolution is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and services should no longer be retrieved from the registrations. </exception>
+            <exception cref="T:System.NotSupportedException"> The resolved registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.RemoveBuildOnlyContracts(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+                Removes all registrations which are registered as <see cref="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.BuildOnly" />.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <returns> The number of removed registrations or zero if no build-only registrations were found to be removed. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.RemoveContract(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type)">
+            <summary>
+                Removes all registrations of a specified contract type from the domain service registrations.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <returns> The number of removed registrations or zero if no contracts were found to be removed. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> <paramref name="builder" /> has already been built and subsequent registrations cannot be used. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.CountContracts(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type)">
+            <summary>
+            Counts the number of registrations for a specified contract.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <returns>The number of registrations for <paramref name="contract"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.ThrowIfNotExactContractCount(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Int32)">
+            <summary>
+            Checks whether the specified domain service builder has an exact amount of a specified contract registered or throws a <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" /> if not.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="exactCount">The exact amount of registered contracts required.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="exactCount"/> is less than zero.</exception>
+            <exception cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException">The builder does not contain the exact amount of contracts.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.ThrowIfNotMinContractCount(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Int32)">
+            <summary>
+            Checks whether the specified domain service builder has a minimum amount of a specified contract registered or throws a <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" /> if not.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="minCount">The minimum amount of registered contracts required.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="minCount"/> is less than zero.</exception>
+            <exception cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException">The builder does not contain the minimum amount of contracts.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.DomainServiceBuilderExtensions.ThrowIfNotMaxContractCount(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Type,System.Int32)">
+            <summary>
+            Checks whether the specified domain service builder has a maximum amount of a specified contract registered or throws a <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException" /> if not.
+            </summary>
+            <param name="builder"> The service builder being used. </param>
+            <param name="contract"> The contract type. </param>
+            <param name="maxCount">The maximum amount of registered contracts required.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="contract" /> is null. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="maxCount"/> is less than zero.</exception>
+            <exception cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilderException">The builder does contain more than the maximum amount of contracts.</exception>
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTask">
+             <summary>
+             Represents a single domain service background task.
+             </summary>
+             <remarks>
+            <para>
+            A domain service background task encapsulates actions which which are run in the background after the domain services are built (after <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build"/>).
+             </para>
+            <para>
+            Domain service background tasks are set up and run by a <see cref="T:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTaskManager"/> implementation.
+             </para>
+             </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTask.Run(RI.DomainServices.Common.Builder.DomainServiceBuilder,System.Threading.CancellationToken)">
+            <summary>
+            Called by the <see cref="T:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTaskManager"/> to create a background task.
+            </summary>
+            <param name="builder">The used domain service builder.</param>
+            <param name="ct">The cancellation token provided by the runtime environment to stop background tasks.</param>
+            <returns>The task which either starts executing or is already finished (e.g. <see cref="P:System.Threading.Tasks.Task.CompletedTask"/>) if no background task is necessary.</returns>
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTaskManager">
+             <summary>
+             Manages domain service background tasks.
+             </summary>
+             <remarks>
+            <para>
+            A domain service background task manager abstracts the runtime environments way of setting up background tasks (<see cref="T:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTask"/>).
+             </para>
+             </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.IDomainServiceBackgroundTaskManager.SetupAndRun(System.Collections.Generic.IEnumerable{RI.DomainServices.Common.Builder.IDomainServiceBackgroundTask})">
+            <summary>
+            Sets up background tasks.
+            </summary>
+            <param name="tasks">The sequence of background tasks to set up and run.</param>
+        </member>
+        <member name="T:RI.DomainServices.Common.Builder.IDomainServiceBuilderTask">
+             <summary>
+             Represents a single domain service builder task.
+             </summary>
+             <remarks>
+            <para>
+            A domain service builder task encapsulates actions which which are run when the domain services are built (during <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build"/>).
+             </para>
+            <para>
+            Domain service builder tasks are run directly by <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder"/>.
+             </para>
+             </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Common.Builder.IDomainServiceBuilderTask.Build(RI.DomainServices.Common.Builder.DomainServiceBuilder)">
+            <summary>
+            Called by the <see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder"/> during <see cref="M:RI.DomainServices.Common.Builder.DomainServiceBuilder.Build"/>.
+            </summary>
+            <param name="builder">The used domain service builder.</param>
+        </member>
+        <member name="T:RI.DomainServices.Common.Composition.CompositionRegistration">
+            <summary>
+                A single domain service registration used by domain service builders to configure and build the required types.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.BuildOnly(System.Type,System.Type)">
+            <summary>
+                Creates a build-only domain service registration specifying an implementation type.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="implementation" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.BuildOnly(System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Creates a build-only domain service registration specifying a factory.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="factory" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.BuildOnly(System.Type,System.Object)">
+            <summary>
+                Creates a build-only domain service registration specifying an implementation instance.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="instance"> The implementation instance. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="instance" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.Singleton(System.Type,System.Type)">
+            <summary>
+                Creates a singleton domain service registration specifying an implementation type.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="implementation" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.Singleton(System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Creates a singleton domain service registration specifying a factory.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="factory" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.Singleton(System.Type,System.Object)">
+            <summary>
+                Creates a singleton domain service registration specifying an implementation instance.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="instance"> The implementation instance. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="instance" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.Transient(System.Type,System.Type)">
+            <summary>
+                Creates a transient domain service registration specifying an implementation type.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="implementation"> The implementation type. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="implementation" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.Transient(System.Type,System.Func{System.IServiceProvider,System.Object})">
+            <summary>
+                Creates a transient domain service registration specifying a factory.
+            </summary>
+            <param name="contract"> The contract type. </param>
+            <param name="factory"> The factory. </param>
+            <returns> The created service registration. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contract" /> or <paramref name="factory" /> is null. </exception>
+        </member>
+        <member name="P:RI.DomainServices.Common.Composition.CompositionRegistration.Contract">
+            <summary>
+                Gets the contract type.
+            </summary>
+            <value>
+                The contract type.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Common.Composition.CompositionRegistration.Factory">
+            <summary>
+                Gets the factory.
+            </summary>
+            <value>
+                The factory or null if implementation type or implementation instance is used.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Common.Composition.CompositionRegistration.Implementation">
+            <summary>
+                Gets the implementation type.
+            </summary>
+            <value>
+                The implementation type or null if factory or implementation instance is used.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Common.Composition.CompositionRegistration.Instance">
+            <summary>
+                Gets the implementation type.
+            </summary>
+            <value>
+                The implementation type or null if implementation type or factory is used.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Common.Composition.CompositionRegistration.Mode">
+            <summary>
+                Gets the service registration mode.
+            </summary>
+            <value>
+                The service registration mode.
+            </value>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.GetOrCreateInstance(System.IServiceProvider)">
+            <summary>
+                Attempts to get or create the instance registered by this domain service registration.
+            </summary>
+            <param name="serviceProviderForFactories"> An optional <see cref="T:System.IServiceProvider" /> which is forwarded to potential factory methods if used.. </param>
+            <returns> The instance. </returns>
+            <remarks>
+                <note type="important">
+                    The instance creation is limited as it only support basic construction of instances, either by using a registered instance, factory method, or parameterless constructor.
+                    Constructors of services which have parameters are not supported.
+                </note>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"> The registration does not support instance creation (e.g. does not have a parameterless constructor, the creation threw an exception, etc.) </exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.CompositionRegistration.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Common.Composition.CompositionRegistrationMode">
+            <summary>
+                Indicates the service registration mode of a <see cref="T:RI.DomainServices.Common.Composition.CompositionRegistration" />.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.Singleton">
+            <summary>
+                The service is registered as a singleton (one instance shared with all requests).
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.Transient">
+            <summary>
+                The service is registered as a transient (one unique instance per requests).
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.BuildOnly">
+            <summary>
+                The service is registered for exclusive use by the domain service builder itself and wont be registered in the used composition container.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Common.Composition.ICompositionContainer">
+            <summary>
+                Composition container used for registering and subsequently providing domain service types/instances.
+            </summary>
+            <remarks>
+                <note type="note">
+                    <see cref="T:RI.DomainServices.Common.Composition.ICompositionContainer" /> is intended to be used by the domain service builder (<see cref="T:RI.DomainServices.Common.Builder.DomainServiceBuilder" />) exclusively and should therefore be registered using <see cref="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.BuildOnly" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Common.Composition.ICompositionContainer.Register(System.Collections.Generic.IEnumerable{RI.DomainServices.Common.Composition.CompositionRegistration})">
+            <summary>
+                Registers the configured domain service registrations in this composition container.
+            </summary>
+            <param name="registrations"> The configured domain service registrations. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="registrations" /> is null. </exception>
+            <exception cref="T:System.NotSupportedException"> <paramref name="registrations" /> contains unsupported registrations not supported by this composition container. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Common.Logging.ILogSink">
+             <summary>
+             A log sink to provide logging to domain services.
+             </summary>
+             <remarks>
+            <para>
+            A log sink abstracts the runtime environments way of logging. 
+             </para>
+             </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSink.Log(System.DateTime,System.Int32,RI.DomainServices.Common.Logging.LogLevel,System.String,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <param name="timestampUtc">The UTC timestamp to be associated with the log message.</param>
+            <param name="threadId">The ID of the thread the log message originates from.</param>
+            <param name="level">The log level of the log message.</param>
+            <param name="source">The source/origin of the log message.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+        </member>
+        <member name="T:RI.DomainServices.Common.Logging.ILogSinkExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Common.Logging.ILogSink" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.Log(RI.DomainServices.Common.Logging.ILogSink,RI.DomainServices.Common.Logging.LogLevel,System.String,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <param name="logger">The used logger.</param>
+            <param name="level">The log level of the log message.</param>
+            <param name="source">The source/origin of the log message.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.LogDebug``1(RI.DomainServices.Common.Logging.ILogSink,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <typeparam name="T">The type which is used as the log message source/origin.</typeparam>
+            <param name="logger">The used logger.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.LogInformation``1(RI.DomainServices.Common.Logging.ILogSink,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <typeparam name="T">The type which is used as the log message source/origin.</typeparam>
+            <param name="logger">The used logger.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.LogWarning``1(RI.DomainServices.Common.Logging.ILogSink,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <typeparam name="T">The type which is used as the log message source/origin.</typeparam>
+            <param name="logger">The used logger.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.LogError``1(RI.DomainServices.Common.Logging.ILogSink,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <typeparam name="T">The type which is used as the log message source/origin.</typeparam>
+            <param name="logger">The used logger.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Common.Logging.ILogSinkExtensions.LogFatal``1(RI.DomainServices.Common.Logging.ILogSink,System.String,System.Object[])">
+            <summary>
+            Writes a log message to the log sink.
+            </summary>
+            <typeparam name="T">The type which is used as the log message source/origin.</typeparam>
+            <param name="logger">The used logger.</param>
+            <param name="format">The log message (with optional string expansion arguments such as <c>{0}</c>, <c>{1}</c>, etc. which are expanded by <paramref name="args"/>).</param>
+            <param name="args">Optional message arguments expanded into <paramref name="format"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="T:RI.DomainServices.Common.Logging.LogLevel">
+            <summary>
+            Indicates the level of a log message.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Logging.LogLevel.Debug">
+            <summary>
+            Debug.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Logging.LogLevel.Information">
+            <summary>
+            Information.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Logging.LogLevel.Warning">
+            <summary>
+            Warning.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Logging.LogLevel.Error">
+            <summary>
+            Recoverable error.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Common.Logging.LogLevel.Fatal">
+            <summary>
+            Unrecoverable error.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer">
+            <summary>
+                Domain repository discoverer which searches for suitable types in assemblies.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer.#ctor(System.Reflection.Assembly)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer" />.
+            </summary>
+            <param name="assembly"> The assembly to search for suitable repository types. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="assembly" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer.#ctor(System.Reflection.Assembly[])">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer" />.
+            </summary>
+            <param name="assemblies"> The assemblies to search for suitable repository types. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="assemblies" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="assemblies" /> is empty or contains null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer.#ctor(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer" />.
+            </summary>
+            <param name="assemblies"> The assemblies to search for suitable repository types. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="assemblies" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="assemblies" /> is empty or contains null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.AssemblyRepositoryDiscoverer.DiscoverRepositoryTypes">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.DomainServiceNodeBuilder">
+            <summary>
+                Domain service builder used to configure and register all necessary types for using domain services as a node.
+            </summary>
+            <remarks>
+                <note type="important">
+                    Domain services are only added to the used composition container and usable after <see cref="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilder.Build" /> is called.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilder.Build">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Node.Builder.DomainServiceNodeBuilder" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseAssemblyRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Action{System.Collections.Generic.List{System.Reflection.Assembly}})">
+            <summary>
+                Registers services for using assemblies to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="configure"> Configuration callback to configure the list of assemblies to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="configure" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="configure" /> added no assemblies or null to the list of assemblies to use. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseAssemblyRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+                Registers services for using assemblies to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="assemblies"> The sequence of assemblies to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="assemblies" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="assemblies" /> is empty or contains null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseAssemblyRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Reflection.Assembly[])">
+            <summary>
+                Registers services for using assemblies to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="assemblies"> The sequence of assemblies to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="assemblies" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="assemblies" /> is empty or contains null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseTypeRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Action{System.Collections.Generic.List{System.Type}})">
+            <summary>
+                Registers services for using a list of types to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="configure"> Configuration callback to configure the list of types to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="configure" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="configure" /> added no types, null, or a type which is not a repository type to the list of types to use. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseTypeRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+                Registers services for using a list of types to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="types"> The sequence of types to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="types" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="types" /> is empty or contains null or <paramref name="types" /> contains a type which is not a repository type. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.DomainServiceNodeBuilderExtensions.UseTypeRepositoryDiscoverer(RI.DomainServices.Node.Builder.DomainServiceNodeBuilder,System.Type[])">
+            <summary>
+                Registers services for using a list of types to discover repository implementations.
+            </summary>
+            <param name="builder"> The service builder being configured. </param>
+            <param name="types"> The sequence of types to use. </param>
+            <returns> The service builder being configured. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="builder" /> or <paramref name="types" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="types" /> is empty or contains null or <paramref name="types" /> contains a type which is not a repository type. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.IRepositoryDiscoverer">
+            <summary>
+                Domain repository discoverer.
+            </summary>
+            <remarks>
+                <note type="note">
+                    <see cref="T:RI.DomainServices.Node.Builder.IRepositoryDiscoverer" /> is intended to be used by the node domain service builder (<see cref="T:RI.DomainServices.Node.Builder.DomainServiceNodeBuilder" />) exclusively and should therefore be registered using <see cref="F:RI.DomainServices.Common.Composition.CompositionRegistrationMode.BuildOnly" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.IRepositoryDiscoverer.DiscoverRepositoryTypes">
+            <summary>
+                Discovers all repository implementations (<see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" />) this discoverer can find.
+            </summary>
+            <returns> A list with all found repository implementations. An empty list is returned if no repository implementations could be found.</returns>
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.IRepositoryDiscovererExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Node.Builder.IRepositoryDiscoverer" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.IRepositoryDiscovererExtensions.GetRepositoryContracts(RI.DomainServices.Node.Builder.IRepositoryDiscoverer,System.Type)">
+            <summary>
+                Gets the repository contract type of a repository implementation.
+            </summary>
+            <param name="discoverer">The used repository discoverer.</param>
+            <param name="type"> The type whose repository contract is to be retrieved. </param>
+            <returns> The list of all repository contract types <paramref name="type"/> implements. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="discoverer" /> or <paramref name="type" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="type" /> is not a valid repository implementation type. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.IRepositoryDiscovererExtensions.IsValidRepositoryImplementation(RI.DomainServices.Node.Builder.IRepositoryDiscoverer,System.Type)">
+            <summary>
+                Checks whether a given type is a valid repository implementation type.
+            </summary>
+            <param name="discoverer">The used repository discoverer.</param>
+            <param name="type"> The type to check. </param>
+            <returns> true if <paramref name="type" /> is a valid repository implementation type, false otherwise. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="discoverer" /> or <paramref name="type" /> is null. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.RepositoryDiscovery">
+            <summary>
+                Result of a single repository discovery.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.RepositoryDiscovery.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Type)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.RepositoryDiscovery" />.
+            </summary>
+            <param name="contracts"> The repository contracts. </param>
+            <param name="implementation"> The repository implementation. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="contracts" /> or <paramref name="implementation" /> is null. </exception>
+        </member>
+        <member name="P:RI.DomainServices.Node.Builder.RepositoryDiscovery.Contracts">
+            <summary>
+                Gets the repository contracts (interfaces derived from <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" />) implemented by <see cref="P:RI.DomainServices.Node.Builder.RepositoryDiscovery.Implementation" />.
+            </summary>
+            <value>
+                The repository contracts (interfaces derived from <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" />) implemented by <see cref="P:RI.DomainServices.Node.Builder.RepositoryDiscovery.Implementation" />.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Node.Builder.RepositoryDiscovery.Implementation">
+            <summary>
+                Gets the repository implementation (class implementing <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> and the interfaces derived from <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" />).
+            </summary>
+            <value>
+                The repository implementation (class implementing <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> and the interfaces derived from <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" />).
+            </value>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.RepositoryDiscovery.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer">
+            <summary>
+                Domain repository discoverer which uses a sequence of types.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer.#ctor(System.Type)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer" />.
+            </summary>
+            <param name="type"> The repository type to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="type" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="type" /> is not a repository type. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer.#ctor(System.Type[])">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer" />.
+            </summary>
+            <param name="types"> The repository types to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="types" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="types" /> is empty or contains null or <paramref name="types" /> contains a type which is not a repository type. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer" />.
+            </summary>
+            <param name="types"> The repository types to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="types" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="types" /> is empty or contains null or <paramref name="types" /> contains a type which is not a repository type. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Builder.TypeRepositoryDiscoverer.DiscoverRepositoryTypes">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.DuplicateAvoidance">
+             <summary>
+             Indicates the level of duplicate avoidance an <see cref="T:RI.DomainServices.Node.Inbox.IInboxQueue"/> implementation can guarantee.
+             </summary>
+             <remarks>
+            <note type="important">
+             Preserving the order of message processing is not defined by the inbox queues ability to avoid duplicate message processing.
+             It is defined separately using <see cref="T:RI.DomainServices.Node.Inbox.OrderPreservation"/>.
+             </note>
+            <note type="important">
+             Even if duplicate avoidance is guaranteed, multiple messages can still be processed in parallel.
+             </note>
+             </remarks>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.DuplicateAvoidance.None">
+            <summary>
+            Avoiding duplicate message processing is not guaranteed by the inbox queue. The same event could be processed repeatedly.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.DuplicateAvoidance.BestEffort">
+            <summary>
+            Avoiding duplicate message processing is not guaranteed by the inbox queue. The same event could be processed repeatedly. However, the chance is minimal as the inbox queue attempts (means: no 100% guarantee) to not deliver the same event twice.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.DuplicateAvoidance.AlwaysExceptCrash">
+            <summary>
+            Avoiding duplicate message processing is guaranteed as long as the inbox queue is not terminated unexpectedly or ungracefully (e.g. process crashes). After an unexpected termination, avoiding delivery of a previously delivered message cannot be avoided for any message received before the termination.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.DuplicateAvoidance.AlwaysExceptRestart">
+            <summary>
+            Avoiding duplicate message processing is guaranteed as long as the inbox queue is not terminated unexpectedly or ungracefully (e.g. process crashes). After an unexpected termination, avoiding delivery of a previously delivered message cannot be avoided for the messages which were in processing at the time of termination.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.DuplicateAvoidance.Inherent">
+            <summary>
+            Avoiding duplicate message processing is guaranteed by the inbox queue. The same event can not be processed repeatedly.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.IInboxDispatcher">
+            <summary>
+            Dispatches integration and domain events to their respective handlers.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.IInboxManager">
+            <summary>
+            Manages the integration and domain event inbox.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.IInboxQueue">
+            <summary>
+            The integration and domain event inbox queue from which the events are retrieved.
+            </summary>
+            <remarks>
+                <para>
+                    Inbox queue implementations can inherit from <see cref="T:RI.DomainServices.Node.Inbox.InboxQueueBase" /> to implement basic boilerplate.
+                </para>
+                <note type="implement">
+                    <see cref="M:System.IDisposable.Dispose" /> and <see cref="M:System.IAsyncDisposable.DisposeAsync" /> should call <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Rollback" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.IInboxQueue.OrderPreservation">
+             <summary>
+             Gets the level of order preservation this inbox queue can guarantee.
+             </summary>
+             <value>
+             The level of order preservation this inbox queue can guarantee.
+             </value>
+             <remarks>
+            <para>
+            See <see cref="P:RI.DomainServices.Node.Inbox.IInboxQueue.OrderPreservation"/> for more details.
+             </para>
+             </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.IInboxQueue.DuplicateAvoidance">
+             <summary>
+             Gets the level of duplicate avoidance this inbox queue can guarantee.
+             </summary>
+             <value>
+             The level of duplicate avoidance this inbox queue can guarantee.
+             </value>
+             <remarks>
+            <para>
+            See <see cref="P:RI.DomainServices.Node.Inbox.IInboxQueue.DuplicateAvoidance"/> for more details.
+             </para>
+             </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.IInboxQueue.CurrentEvent">
+            <summary>
+            Gets the integration or domain event processed by the current transaction.
+            </summary>
+            <value>
+            The event processed by the current transaction or null if no event is available.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.IInboxQueue.CurrentEventSerialized">
+            <summary>
+            Gets the serialized integration or domain event processed by the current transaction.
+            </summary>
+            <value>
+            The serialized event processed by the current transaction or null if no event is available.
+            </value>
+            <remarks>
+                <note type="important">
+                    Do not use <see cref="P:RI.DomainServices.Node.Inbox.IInboxQueue.CurrentEventSerialized"/> for processing the event. <see cref="P:RI.DomainServices.Node.Inbox.IInboxQueue.CurrentEventSerialized"/> is only intended to be used for logging.
+                </note>
+                <note type="security">
+                    When logging <see cref="P:RI.DomainServices.Node.Inbox.IInboxQueue.CurrentEventSerialized"/>, be aware that it might contain sensitive information.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.InboxQueueBase">
+            <summary>
+                Base implementation of <see cref="T:RI.DomainServices.Node.Inbox.IInboxQueue" />.
+            </summary>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Inbox.InboxQueueBase" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.#ctor(RI.DomainServices.Node.Serialization.IEventSerializer,System.IServiceProvider)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Inbox.InboxQueueBase" />.
+            </summary>
+            <param name="eventSerializer"> The used integration and domain event serializer/deserializer (<see cref="T:RI.DomainServices.Node.Serialization.IEventSerializer"/>). </param>
+            <param name="serviceProvider"> The service provider the inbox queue can use to resolve additional dependencies dynamically (<see cref="T:System.IServiceProvider"/>). </param>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Inbox.InboxQueueBase" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="eventSerializer" /> or <paramref name="serviceProvider" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Finalize">
+            <summary>
+                Finalizes this instance of <see cref="T:RI.DomainServices.Node.Inbox.InboxQueueBase" />.
+            </summary>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.EventSerializer">
+            <summary>
+                Gets the used event serializer/deserializer.
+            </summary>
+            <value>
+            The used event serializer/deserializer.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.ServiceProvider">
+            <summary>
+                Gets the service provider the unit-of-work can use to resolve additional dependencies dynamically.
+            </summary>
+            <value>
+            The service provider the unit-of-work can use to resolve additional dependencies dynamically.
+            </value>
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Dispose(System.Boolean)">
+            <inheritdoc cref="M:System.IDisposable.Dispose" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Fail(System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.State">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Begin">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Commit">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.System#IDisposable#Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.System#IAsyncDisposable#DisposeAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Inbox.InboxQueueBase.Rollback">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.OrderPreservation">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.DuplicateAvoidance">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.CurrentEvent">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Inbox.InboxQueueBase.CurrentEventSerialized">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Inbox.OrderPreservation">
+             <summary>
+             Indicates the level of order preservation an <see cref="T:RI.DomainServices.Node.Inbox.IInboxQueue"/> implementation can guarantee.
+             </summary>
+             <remarks>
+            <note type="important">
+             Avoidance of duplicate message processing is not defined by the inbox queues ability to preserve order.
+             It is defined separately using <see cref="T:RI.DomainServices.Node.Inbox.DuplicateAvoidance"/>.
+             </note>
+            <note type="important">
+             Even if order of message processing is guaranteed, multiple messages can still be processed in parallel.
+             Order preservation only defines whether the message processing is STARTED in the order as received.
+             </note>
+             </remarks>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.OrderPreservation.None">
+            <summary>
+            Order of message processing is not guaranteed by the inbox queue.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.OrderPreservation.BestEffort">
+            <summary>
+            Order of message processing is not guaranteed by the inbox queue. However, out-of-order processing is minimal as the inbox queue attempts (means: no 100% guarantee) to deliver the messages in the order as they arrived.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.OrderPreservation.AlwaysExceptCrash">
+            <summary>
+            Order of message processing is guaranteed as long as the inbox queue is not terminated unexpectedly or ungracefully (e.g. process crashes). After an unexpected termination, the order of message processing can no longer be guaranteed for any message received before the termination.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.OrderPreservation.AlwaysExceptRestart">
+            <summary>
+            Order of message processing is guaranteed as long as the inbox queue is not terminated unexpectedly or ungracefully (e.g. process crashes). After an unexpected termination, the order of message processing can no longer be guaranteed for the messages which were in processing at the time of termination.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Inbox.OrderPreservation.Inherent">
+            <summary>
+            Order of message processing is guaranteed by the inbox queue. The messages are always delivered in the order they arrived.
+            </summary>
+        </member>
+        <member name="T:RI.DomainServices.Node.Repositories.IRepository`1">
+            <summary>
+                Domain repository (domain layer contract).
+            </summary>
+            <typeparam name="TRoot"> The domain aggregate root type this repository deals with. </typeparam>
+            <remarks>
+                <para>
+                    In the domain layer, <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" /> should be used instead of <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> in order to hide the concrete <see cref="T:RI.DomainServices.Node.Repositories.IUnitOfWork" /> implementation (defined in the infrastructure layer) from the domain layer.
+                </para>
+                <para>
+                    Typically, the repository contracts (interfaces) in the domain layer inherit <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" />.
+                </para>
+                <note type="important">
+                    In the concrete repository implementation, in the infrastructure layer, the implementation of <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" /> is not enough, <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> must also be implemented to be recognized as a repository.
+                </note>
+                <note type="implement">
+                    <see cref="M:System.IDisposable.Dispose" /> and <see cref="M:System.IAsyncDisposable.DisposeAsync" /> should also dispose <see cref="P:RI.DomainServices.Node.Repositories.IRepository`1.UnitOfWork" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.IRepository`1.UnitOfWork">
+            <summary>
+                Gets the unit-of-work used by the repository.
+            </summary>
+            <value>
+                The unit-of-work used by the repository.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Repositories.IRepository`2">
+            <summary>
+                Domain repository (infrastructure layer contract).
+            </summary>
+            <typeparam name="TRoot"> The domain aggregate root type this repository deals with. </typeparam>
+            <typeparam name="TUnitOfWork"> The unit-of-work type this repository uses. </typeparam>
+            <remarks>
+                <para>
+                    In the domain layer, <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" /> should be used instead of <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> in order to hide the concrete <see cref="T:RI.DomainServices.Node.Repositories.IUnitOfWork" /> implementation (defined in the infrastructure layer) from the domain layer.
+                </para>
+                <para>
+                    Typically, the repository implementations in the infrastructure layer implement <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" />.
+                </para>
+                <para>
+                    Repository implementations can inherit from <see cref="T:RI.DomainServices.Node.Repositories.RepositoryBase`2" /> to implement basic boilerplate.
+                </para>
+                <note type="important">
+                    In the concrete repository implementation, in the infrastructure layer, the implementation of <see cref="T:RI.DomainServices.Node.Repositories.IRepository`1" /> is not enough, <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" /> must also be implemented to be recognized as a repository.
+                </note>
+                <note type="implement">
+                    <see cref="M:System.IDisposable.Dispose" /> and <see cref="M:System.IAsyncDisposable.DisposeAsync" /> should also dispose <see cref="P:RI.DomainServices.Node.Repositories.IRepository`2.UnitOfWork" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.IRepository`2.UnitOfWork">
+            <summary>
+                Gets the unit-of-work used by the repository.
+            </summary>
+            <value>
+                The unit-of-work used by the repository.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Repositories.IUnitOfWork">
+            <summary>
+                Unit-of-work used by repositories.
+            </summary>
+            <remarks>
+                <para>
+                    Unit-of-work implementations can inherit from <see cref="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase" /> to implement basic boilerplate.
+                </para>
+                <note type="implement">
+                    <see cref="M:System.IDisposable.Dispose" /> and <see cref="M:System.IAsyncDisposable.DisposeAsync" /> should call <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Rollback" />.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.IUnitOfWork.PublishedEvents">
+            <summary>
+                Gets the list of already published domain and integration events.
+            </summary>
+            <value>
+                The list of already published domain and integration events.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null.
+                </note>
+            </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.IUnitOfWork.Publish(RI.DomainServices.Node.Objects.IEvent)">
+            <summary>
+                Publishes a domain event or integration event as part of the current transaction.
+            </summary>
+            <param name="event"> The domain event or integration event to publish. </param>
+            <returns> The task to await until the event was published as part of the current transaction. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="event" /> is null. </exception>
+            <exception cref="T:System.InvalidOperationException"> The transaction is not started or was already committed or rolled back. </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException"> <paramref name="event" /> cannot be serialized. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Repositories.RepositoryBase`2">
+            <summary>
+                Base implementation of <see cref="T:RI.DomainServices.Node.Repositories.IRepository`2" />.
+            </summary>
+            <typeparam name="TRoot"> The domain aggregate root type this repository deals with. </typeparam>
+            <typeparam name="TUnitOfWork"> The unit-of-work type this repository uses. </typeparam>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Repositories.RepositoryBase`2" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.RepositoryBase`2.#ctor(`1)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Repositories.RepositoryBase`2" />.
+            </summary>
+            <param name="unitOfWork"> An instance of the unit-of-work this repository uses (<typeparamref name="TUnitOfWork"/>). </param>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Repositories.RepositoryBase`2" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="unitOfWork" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.RepositoryBase`2.Finalize">
+            <summary>
+                Finalizes this instance of <see cref="T:RI.DomainServices.Node.Repositories.RepositoryBase`2" />.
+            </summary>
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.RepositoryBase`2.Dispose(System.Boolean)">
+            <inheritdoc cref="M:System.IDisposable.Dispose" />
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.RepositoryBase`2.UnitOfWork">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.RepositoryBase`2.RI#DomainServices#Node#Repositories#IRepository{TRoot}#UnitOfWork">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.RepositoryBase`2.System#IDisposable#Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.RepositoryBase`2.System#IAsyncDisposable#DisposeAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase">
+            <summary>
+                Base implementation of <see cref="T:RI.DomainServices.Node.Repositories.IUnitOfWork" />.
+            </summary>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.#ctor(RI.DomainServices.Node.Serialization.IEventSerializer,System.IServiceProvider)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase" />.
+            </summary>
+            <param name="eventSerializer"> The used integration and domain event serializer/deserializer (<see cref="T:RI.DomainServices.Node.Serialization.IEventSerializer"/>). </param>
+            <param name="serviceProvider"> The service provider the unit-of-work can use to resolve additional dependencies dynamically (<see cref="T:System.IServiceProvider"/>). </param>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase" /> is intended to be used with constructor dependency injection.
+                </note>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="eventSerializer" /> or <paramref name="serviceProvider" /> is null. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Finalize">
+            <summary>
+                Finalizes this instance of <see cref="T:RI.DomainServices.Node.Repositories.UnitOfWorkBase" />.
+            </summary>
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.UnitOfWorkBase.EventSerializer">
+            <summary>
+                Gets the used event serializer/deserializer.
+            </summary>
+            <value>
+            The used event serializer/deserializer.
+            </value>
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.UnitOfWorkBase.PublishedEvents">
+            <inheritdoc cref="P:RI.DomainServices.Node.Repositories.IUnitOfWork.PublishedEvents" />
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.UnitOfWorkBase.ServiceProvider">
+            <summary>
+                Gets the service provider the unit-of-work can use to resolve additional dependencies dynamically.
+            </summary>
+            <value>
+            The service provider the unit-of-work can use to resolve additional dependencies dynamically.
+            </value>
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Dispose(System.Boolean)">
+            <inheritdoc cref="M:System.IDisposable.Dispose" />
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.UnitOfWorkBase.RI#DomainServices#Node#Repositories#IUnitOfWork#PublishedEvents">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Fail(System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="P:RI.DomainServices.Node.Repositories.UnitOfWorkBase.State">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Begin">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Commit">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.System#IDisposable#Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.System#IAsyncDisposable#DisposeAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Publish(RI.DomainServices.Node.Objects.IEvent)">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Repositories.UnitOfWorkBase.Rollback">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Serialization.IEventSerializer">
+            <summary>
+                Serializes and deserializes domain and integration events for storage and transmission.
+            </summary>
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.IEventSerializer.Deserialize(RI.DomainServices.Node.Serialization.SerializedEvent)">
+            <summary>
+                Deserializes an event.
+            </summary>
+            <param name="event"> The event to deserialize. </param>
+            <returns> The deserialized event. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="event" /> is null. </exception>
+            <exception cref="T:System.ArgumentException"> <paramref name="event" /> has invalid contents (e.g. strings are null or empty). </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException"> <paramref name="event" /> cannot be deserialized. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.IEventSerializer.Serialize(RI.DomainServices.Node.Objects.IEvent)">
+            <summary>
+                Serializes an event.
+            </summary>
+            <param name="event"> The event to serialize. </param>
+            <returns> The serialized event. </returns>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="event" /> is null. </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException"> <paramref name="event" /> cannot be serialized. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Serialization.SerializedEvent">
+            <summary>
+                Envelope for serialized domain and integration events.
+            </summary>
+            <remarks>
+                <note type="security">
+                    When logging <see cref="T:RI.DomainServices.Node.Serialization.SerializedEvent"/>, be aware that it might contain sensitive information.
+                </note>
+            </remarks>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.SerializedEvent.#ctor">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Serialization.SerializedEvent" />.
+            </summary>
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.SerializedEvent.#ctor(System.String,System.String)">
+            <summary>
+                Creates a new instance of <see cref="T:RI.DomainServices.Node.Serialization.SerializedEvent" />.
+            </summary>
+            <param name="type"> The type information of the serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation. </param>
+            <param name="data"> The serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation. </param>
+        </member>
+        <member name="P:RI.DomainServices.Node.Serialization.SerializedEvent.Data">
+            <summary>
+                Gets or sets the serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation.
+            </summary>
+            <value>
+                The serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation.
+            </value>
+            <remarks>
+                <note type="security">
+                    When logging <see cref="P:RI.DomainServices.Node.Serialization.SerializedEvent.Data"/>, be aware that it might contain sensitive information.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Serialization.SerializedEvent.Type">
+            <summary>
+                Gets or sets the type information of the serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation.
+            </summary>
+            <value>
+                The type information of the serialized <see cref="T:RI.DomainServices.Node.Objects.IEvent" /> implementation.
+            </value>
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.SerializedEvent.Clone">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.SerializedEvent.System#ICloneable#Clone">
+            <inheritdoc />
+        </member>
+        <member name="M:RI.DomainServices.Node.Serialization.SerializedEvent.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportDbConnection">
+            <summary>
+                Provides support of <see cref="T:System.Data.Common.DbConnection" /> by transaction implementations.
+            </summary>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportDbConnection.Connection">
+            <summary>
+                Gets the <see cref="T:System.Data.Common.DbConnection" /> used by the transaction implementation.
+            </summary>
+            <value>
+                The <see cref="T:System.Data.Common.DbConnection" /> used by the transaction implementation.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null when the transaction is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportDbConnection`1">
+            <summary>
+                Provides support of <see cref="T:System.Data.Common.DbConnection" /> by transaction implementations.
+            </summary>
+            <typeparam name="TConnection"> The concrete <see cref="T:System.Data.Common.DbConnection" /> implementation. </typeparam>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportDbConnection`1.Connection">
+            <summary>
+                Gets the <typeparamref name="TConnection"/> used by the transaction implementation.
+            </summary>
+            <value>
+                The <typeparamref name="TConnection"/> used by the transaction implementation.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null when the transaction is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportDbTransaction">
+            <summary>
+                Provides support of <see cref="T:System.Data.Common.DbTransaction" /> by transaction implementations.
+            </summary>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportDbTransaction.Transaction">
+            <summary>
+                Gets the <see cref="T:System.Data.Common.DbTransaction" /> used by the transaction implementation.
+            </summary>
+            <value>
+                The <see cref="T:System.Data.Common.DbTransaction" /> used by the transaction implementation.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null when the transaction is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportDbTransaction`1">
+            <summary>
+                Provides support of <see cref="T:System.Data.Common.DbTransaction" /> by transaction implementations.
+            </summary>
+            <typeparam name="TTransaction"> The concrete <see cref="T:System.Data.Common.DbTransaction" /> implementation. </typeparam>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportDbTransaction`1.Transaction">
+            <summary>
+                Gets the <typeparamref name="TTransaction"/> used by the transaction implementation.
+            </summary>
+            <value>
+                The <typeparamref name="TTransaction"/> used by the transaction implementation.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null when the transaction is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportEntityFrameworkCore">
+            <summary>
+                Provides support of Entity Framework Core by transaction implementations.
+            </summary>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Transactions.ISupportEntityFrameworkCore" /> does not actually implement any Entity Framework Core related functionality but merely acts as a contract so that all required properties are available to provide support for Entity Framework Core.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportEntityFrameworkCore.Services">
+            <summary>
+                Gets the <see cref="T:System.IServiceProvider" /> provided by the transaction implementation.
+            </summary>
+            <value>
+                The <see cref="T:System.IServiceProvider" /> provided by the transaction implementation.
+            </value>
+            <remarks>
+                <note type="implement">
+                    This property must not be null when the transaction is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportEntityFrameworkCore`1">
+            <summary>
+                Provides support of Entity Framework Core by transaction implementations.
+            </summary>
+            <typeparam name="TTransaction"> The concrete <see cref="T:System.Data.Common.DbTransaction" /> implementation. </typeparam>
+            <remarks>
+                <note type="important">
+                    <see cref="T:RI.DomainServices.Node.Transactions.ISupportEntityFrameworkCore`1" /> does not actually implement any Entity Framework Core related functionality but merely acts as a contract so that all required properties are available to provide support for Entity Framework Core.
+                </note>
+            </remarks>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportExternalDbConnection`1">
+            <summary>
+                Provides support of using an external connection by transaction implementations.
+            </summary>
+            <typeparam name="TConnection"> The concrete <see cref="T:System.Data.Common.DbConnection" /> implementation. </typeparam>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportExternalDbConnection`1.Begin(`0)">
+             <summary>
+                 Starts the transaction using an external connection.
+             </summary>
+             <param name="connection">The external connection to use by the transaction implementation.</param>
+             <returns> The task to await until the transaction is started. </returns>
+             <remarks>
+            <para>
+            If the specified connection is not started, it will be started.
+             </para>
+             </remarks>
+             <exception cref="T:System.ArgumentNullException"><paramref name="connection"/> is null.</exception>
+             <exception cref="T:System.InvalidOperationException"> The transaction is already started, committed, or rolled back. </exception>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportExternalDbConnection`1.IsExternalConnection">
+            <summary>
+            Gets whether the used connection is an external connection.
+            </summary>
+            <value>
+            true if the used connection is an external connection (provided to <see cref="M:RI.DomainServices.Node.Transactions.ISupportExternalDbConnection`1.Begin(`0)"/>), false if the used connection is an internal connection (created privately by <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Begin"/>), null if the transaction was not started.
+            </value>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportExternalDbConnectionExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Node.Transactions.ISupportExternalDbConnection`1" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportExternalDbConnectionExtensions.TryBegin``1(RI.DomainServices.Node.Transactions.ISupportExternalDbConnection{``0},``0)">
+             <summary>
+                 Attempts to start the transaction using an external connection.
+             </summary>
+             <typeparam name="TConnection"> The concrete <see cref="T:System.Data.Common.DbConnection" /> implementation. </typeparam>
+             <param name="transaction">The used transaction.</param>
+             <param name="connection">The external connection to use by the transaction implementation.</param>
+             <returns> true if <paramref name="connection"/> is already open, false if <paramref name="connection"/> is not open and the transaction was therefore not started. </returns>
+             <remarks>
+            <para>
+            If the specified connection is not started, it will not be started.
+             </para>
+             </remarks>
+             <exception cref="T:System.ArgumentNullException"><paramref name="transaction"/> or <paramref name="connection"/> is null.</exception>
+             <exception cref="T:System.InvalidOperationException"> The transaction is already started, committed, or rolled back. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction`1">
+            <summary>
+                Provides support of using an external transaction by transaction implementations.
+            </summary>
+            <typeparam name="TTransaction"> The concrete <see cref="T:System.Data.Common.DbTransaction" /> implementation. </typeparam>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction`1.Begin(`0)">
+            <summary>
+                Starts the transaction using an external transaction.
+            </summary>
+            <param name="transaction">The external transaction to use by the transaction implementation.</param>
+            <returns> The task to await until the transaction is started. </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="transaction"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException"> The transaction is already started, committed, or rolled back. </exception>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction`1.IsExternalTransaction">
+            <summary>
+            Gets whether the used transaction is an external transaction.
+            </summary>
+            <value>
+            true if the used transaction is an external transaction (provided to <see cref="M:RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction`1.Begin(`0)"/>), false if the used transaction is an internal transaction (created privately by <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Begin"/>), null if the transaction was not started.
+            </value>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportExternalDbTransactionExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction`1" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportExternalDbTransactionExtensions.AttachTo``1(RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction{``0},RI.DomainServices.Node.Transactions.ISupportDbTransaction{``0})">
+             <summary>
+             Attaches a transaction to another transaction as an inner transaction.
+             </summary>
+             <typeparam name="TTransaction"> The concrete <see cref="T:System.Data.Common.DbTransaction" /> implementation. </typeparam>
+             <param name="innerTransaction">The inner transaction to be attached.</param>
+             <param name="outerTransaction">The outer transaction the inner transaction is attached to.</param>
+             <returns> The task to await until the transaction is attached. </returns>
+             <remarks>
+            <note type="important">
+             The inner transaction will not have its own connection or transaction.
+             It will use the connection and transaction shared by the outer transaction.
+             </note>
+            <para>
+             The outer transaction must already be started while the inner transaction must not yet be started but startable.
+             The inner transaction will be started using the outer transaction.
+             </para>
+             </remarks>
+             <exception cref="T:System.ArgumentNullException"><paramref name="innerTransaction"/> or <paramref name="outerTransaction"/> is null.</exception>
+             <exception cref="T:System.InvalidOperationException"> <paramref name="innerTransaction"/> is already started, committed, or rolled back or <paramref name="outerTransaction"/> is not started or was already committed or rolled back.</exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportExternalDbTransactionExtensions.AttachTo``1(RI.DomainServices.Node.Transactions.ISupportExternalDbTransaction{``0},RI.DomainServices.Node.Transactions.ISupportTransaction)">
+             <summary>
+             Attaches a transaction to another transaction as an inner transaction.
+             </summary>
+             <typeparam name="TTransaction"> The concrete <see cref="T:System.Data.Common.DbTransaction" /> implementation. </typeparam>
+             <param name="innerTransaction">The inner transaction to be attached.</param>
+             <param name="outerTransaction">The outer transaction the inner transaction is attached to.</param>
+             <returns> The task to await until the transaction is attached. </returns>
+             <remarks>
+            <note type="important">
+             The inner transaction will not have its own connection or transaction.
+             It will use the connection and transaction shared by the outer transaction.
+             </note>
+            <para>
+             The outer transaction must already be started while the inner transaction must not yet be started but startable.
+             The inner transaction will be started using the outer transaction.
+             </para>
+             </remarks>
+             <exception cref="T:System.ArgumentNullException"><paramref name="innerTransaction"/> or <paramref name="outerTransaction"/> is null.</exception>
+             <exception cref="T:System.InvalidOperationException"> <paramref name="innerTransaction"/> is already started, committed, or rolled back or <paramref name="outerTransaction"/> is not started or was already committed or rolled back.</exception>
+             <exception cref="T:System.NotSupportedException"><typeparamref name="TTransaction"/> is not supported by <paramref name="outerTransaction"/>.</exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportTransaction">
+            <summary>
+            Implements a transaction.
+            </summary>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Begin">
+            <summary>
+                Starts the transaction.
+            </summary>
+            <returns> The task to await until the transaction is started. </returns>
+            <exception cref="T:System.InvalidOperationException"> The transaction is already started, committed, or rolled back. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Commit">
+            <summary>
+                Commits the transaction.
+            </summary>
+            <returns> The task to await until the transaction is committed. </returns>
+            <exception cref="T:System.InvalidOperationException"> The transaction is not started or was already committed or rolled back. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Rollback">
+            <summary>
+                Rolls back the transaction.
+            </summary>
+            <returns> The task to await until the transaction is rolled back. </returns>
+            <remarks>
+                <note type="implement">
+                    <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Rollback" /> must be callable at any time and also repeatedly, regardless of the state of the transaction.
+                </note>
+            </remarks>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Fail(System.Exception)">
+            <summary>
+                Fails the transaction.
+            </summary>
+            <param name="exception">The exception which caused the transaction to fail.</param>
+            <returns> The task to await until the transaction is failed. </returns>
+            <remarks>
+                <note type="implement">
+                    <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Fail(System.Exception)" /> must be callable at any time and also repeatedly, regardless of the state of the transaction.
+                </note>
+                <note type="implement">
+                    <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Fail(System.Exception)" /> must be able to deal with <paramref name="exception"/> being null.
+            In such cases, the same behaviour as <see cref="M:RI.DomainServices.Node.Transactions.ISupportTransaction.Rollback"/> is expected.
+                </note>
+            </remarks>
+        </member>
+        <member name="P:RI.DomainServices.Node.Transactions.ISupportTransaction.State">
+            <summary>
+                Gets the current transaction state of the unit-of-work.
+            </summary>
+            <value>
+            The current transaction state of the unit-of-work.
+            </value>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.ISupportTransactionExtensions">
+            <summary>
+                Provides utility/extension methods for the <see cref="T:RI.DomainServices.Node.Transactions.ISupportTransaction" /> type.
+            </summary>
+            <threadsafety static="false" instance="false" />
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransactionExtensions.ThrowIfNotStarted(RI.DomainServices.Node.Transactions.ISupportTransaction)">
+            <summary>
+            Checks whether the specified transaction is already started or throws a <see cref="T:System.InvalidOperationException" /> if not.
+            </summary>
+            <param name="transaction">The used transaction.</param>
+            <remarks>
+            <para>
+            A transaction is considered started if it is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.Started"/> state.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="transaction"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException"> The transaction is not started or was already committed or rolled back. </exception>
+        </member>
+        <member name="M:RI.DomainServices.Node.Transactions.ISupportTransactionExtensions.ThrowIfNotStartable(RI.DomainServices.Node.Transactions.ISupportTransaction)">
+            <summary>
+            Checks whether the specified transaction is not yet started and can be started or throws a <see cref="T:System.InvalidOperationException" /> if it is already started or was started before.
+            </summary>
+            <param name="transaction">The used transaction.</param>
+            <remarks>
+            <para>
+            A transaction is considered not started if it is in the <see cref="F:RI.DomainServices.Node.Transactions.TransactionState.NotStarted"/> state.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="transaction"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException"> The transaction is already started, committed, or rolled back. </exception>
+        </member>
+        <member name="T:RI.DomainServices.Node.Transactions.TransactionState">
+            <summary>
+                Indicates the transaction state of an <see cref="T:RI.DomainServices.Node.Transactions.ISupportTransaction" /> implementation.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.NotStarted">
+            <summary>
+                Transaction not yet started. Not yet usable.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.Starting">
+            <summary>
+                Transaction is being started. Not yet usable.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.Started">
+            <summary>
+                Transaction started and ready to be used.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.Committing">
+            <summary>
+                Transaction being committed. No longer usable.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.Committed">
+            <summary>
+                Transaction committed. No longer usable.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.RollingBack">
+            <summary>
+                Transaction being rolled back. No longer usable.
+            </summary>
+        </member>
+        <member name="F:RI.DomainServices.Node.Transactions.TransactionState.RolledBack">
+            <summary>
+                Transaction rolled back. No longer usable.
+            </summary>
+        </member>
+    </members>
+</doc>

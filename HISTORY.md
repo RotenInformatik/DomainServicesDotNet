@@ -4,6 +4,8 @@
 
 ---
 
-## 1.0.0
+## 0.1.0
 
-First version.
+First version. Untested.
+
+Partial successor of [Decoupling & Utilities Framework](https://github.com/RotenInformatik/RI_Framework), which is being archived.
